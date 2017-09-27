@@ -1,0 +1,27 @@
+#ajax-loader {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5) url(../images/ajax-loader.gif) no-repeat scroll center center;
+}
+
+button {
+    cursor: pointer !important;
+}
+
+.app-container {
+    padding: 1rem !important;
+}
+
+.answered {
+    color: forestgreen;
+}
+
+.not-answered {
+    color: darkorange;
+}
+
+.solution-mark {
+    font-size: 18px;
+}

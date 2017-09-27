@@ -1,0 +1,20 @@
+{
+  "name": "StackExchangeDemo",
+  "version": "1.0.0",
+  "description": "Stack Exchange Demo",
+  "main": "gulpfile.js",
+  "author": "ashamsutdinov",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-clean-css": "^3.0.3",
+    "pump": "^1.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta",
+    "components-font-awesome": "^4.6.3",
+    "tablesorter": "^2.28.15"
+  }
+}

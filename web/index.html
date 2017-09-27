@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="css/app.min.css">
+        <title>Stack Exchange Demo</title>
+    </head>
+    <body>
+
+        <div id="ajax-loader"></div>
+
+        <div class="container-fluid app-container">
+            <form class="form-inline" id="search-form">
+                <input type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" id="query" required>
+                <button type="sumbit" class="btn btn-primary my-sm-0">Search</button>
+                <small class="text-muted mr-sm-0 col-md-4">Total: <span id="row-counter">0</span></small>
+            </form>
+            <table id="table-result" class="table table-hover table-bordered tablesorter-bootstrap">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>Author</th>
+                        <th class="text-center">Solution</th>
+                    </tr>
+                </thead>
+                <tbody id="table-result-body">
+                    <tr>
+                        <td colspan="4">No records...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="js/app.min.js"></script>
+        <script>
+            $(function() {
+
+                $('#search-form').submit(function(event) {
+                    event.preventDefault();
+                    webAppCore.sendQuery($('#query').val(), function(rows) {
+
+                        $('#table-result-body').empty();
+
+                        $('#table-result-body').append(rows);
+
+                        function sortKeyExtractor(node) {
+                            return $(node).data('sortKey');
+                        }
+
+                        $('#table-result').tablesorter({
+                            textExtraction: {
+                                1: sortKeyExtractor,
+                                3: sortKeyExtractor
+                            }
+                        });
+                    });
+                });
+
+                $(document).ajaxStart(function () {
+                    $('#ajax-loader').show();
+                }).ajaxStop(function () {
+                    $('#ajax-loader').hide();
+                });
+
+            });
+        </script>
+    </body>
+</html>

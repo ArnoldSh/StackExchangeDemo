@@ -11,5 +11,5 @@ gulp build
 ```
 Now scripts and styles are copied into web folder and ready to deploy by Tomcat/Jersey.
 Enjoy!
-##What you should to see if success
-
+## What you should to see if success
+![alt text](/demo_anim.gif)
